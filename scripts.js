@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let h6 = document.createElement("h6");
   let ul = document.createElement("ul");
   // let li = document.createElement("li");
-  
+
   div.className = "header-container";
   h1.className = "h1";
   h2.className = "h2";
@@ -19,38 +19,53 @@ document.addEventListener("DOMContentLoaded", function () {
   ul.className = "ul";
   // li.className = "li";
 
-  let colorArray = ['#242582', '#41b3a3', '#c38d9e', '#E8a87c', '#85DCB0', '#e27d60', '#553d67', '#f64c72'];
+  let colorArray = [
+    "#242582",
+    "#41b3a3",
+    "#c38d9e",
+    "#E8a87c",
+    "#85DCB0",
+    "#e27d60",
+    "#553d67",
+    "#f64c72",
+  ];
 
-  h2.addEventListener('dblclick', function() {
-    document.getElementsByClassName('h2');
-    this.style.color = (colorArray[Math.floor(Math.random() * colorArray.length)]);
+  h2.addEventListener("dblclick", function () {
+    document.getElementsByClassName("h2");
+    this.style.color =
+      colorArray[Math.floor(Math.random() * colorArray.length)];
   });
 
-  let button = document.createElement('button');
-  let btnText = document.createTextNode('Click to add new list item');
+  let button = document.createElement("button");
+  let btnText = document.createTextNode("Click to add new list item");
   button.className = "button";
   button.appendChild(btnText);
 
   let i = 1;
 
   let insertListItem = () => {
-  
     let li = document.createElement("li");
     let liText = document.createTextNode("This is list item " + i);
     li.appendChild(liText);
     li.id = "li" + i;
     ul.appendChild(li);
     i++;
-  }
-  
-button.addEventListener('click', insertListItem);
+  };
 
-ul.addEventListener('click', function() {
-  li = document.getElementsByTagName('li');
-  this.style.color = (colorArray[Math.floor(Math.random() * colorArray.length)]);
-});
+  button.addEventListener("click", insertListItem);
 
-  
+  ul.addEventListener("click", function (e) {
+    if (e.target.tagName === "LI") {
+      e.target.style.color =
+        colorArray[Math.floor(Math.random() * colorArray.length)];
+    }
+  });
+
+  ul.addEventListener("dblclick", function (e) {
+    if (e.target.tagName === "LI") {
+      ul.removeChild(e.target);
+    }
+  });
 
   let h1text = document.createTextNode("this is an h1");
   let h2text = document.createTextNode("this is an h2");
