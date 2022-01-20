@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let h5 = document.createElement("h5");
   let h6 = document.createElement("h6");
   let ul = document.createElement("ul");
+  // let li = document.createElement("li");
   
   div.className = "header-container";
   h1.className = "h1";
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   h5.className = "h5";
   h6.className = "h6";
   ul.className = "ul";
+  // li.className = "li";
 
   let colorArray = ['#242582', '#41b3a3', '#c38d9e', '#E8a87c', '#85DCB0', '#e27d60', '#553d67', '#f64c72'];
 
@@ -36,11 +38,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let li = document.createElement("li");
     let liText = document.createTextNode("This is list item " + i);
     li.appendChild(liText);
+    li.id = "li" + i;
     ul.appendChild(li);
     i++;
   }
   
 button.addEventListener('click', insertListItem);
+
+ul.addEventListener('click', function() {
+  li = document.getElementsByTagName('li');
+  this.style.color = (colorArray[Math.floor(Math.random() * colorArray.length)]);
+});
 
   
 
