@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let h5 = document.createElement("h5");
   let h6 = document.createElement("h6");
   let ul = document.createElement("ul");
-  let li = document.createElement("li");
-  let br = document.createElement("br");
-
+  
   div.className = "header-container";
   h1.className = "h1";
   h2.className = "h2";
@@ -34,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let i = 1;
 
   let insertListItem = () => {
-    document.getElementsByClassName('li');
+  
+    let li = document.createElement("li");
     let liText = document.createTextNode("This is list item " + i);
     li.appendChild(liText);
     ul.appendChild(li);
