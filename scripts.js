@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let h4 = document.createElement("h4");
   let h5 = document.createElement("h5");
   let h6 = document.createElement("h6");
+  let ul = document.createElement("ul");
+  let li = document.createElement("li");
+  let br = document.createElement("br");
 
   div.className = "header-container";
   h1.className = "h1";
@@ -14,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   h4.className = "h4";
   h5.className = "h5";
   h6.className = "h6";
+  ul.className = "ul";
 
   let colorArray = ['#242582', '#41b3a3', '#c38d9e', '#E8a87c', '#85DCB0', '#e27d60', '#553d67', '#f64c72'];
 
@@ -21,6 +25,25 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByClassName('h2');
     this.style.color = (colorArray[Math.floor(Math.random() * colorArray.length)]);
   });
+
+  let button = document.createElement('button');
+  let btnText = document.createTextNode('Click to add new list item');
+  button.className = "button";
+  button.appendChild(btnText);
+
+  let i = 1;
+
+  let insertListItem = () => {
+    document.getElementsByClassName('li');
+    let liText = document.createTextNode("This is list item " + i);
+    li.appendChild(liText);
+    ul.appendChild(li);
+    i++;
+  }
+  
+button.addEventListener('click', insertListItem);
+
+  
 
   let h1text = document.createTextNode("this is an h1");
   let h2text = document.createTextNode("this is an h2");
@@ -42,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
   div.appendChild(h4);
   div.appendChild(h5);
   div.appendChild(h6);
+  div.appendChild(button);
+  div.appendChild(ul);
 
   document.body.appendChild(div);
 });
